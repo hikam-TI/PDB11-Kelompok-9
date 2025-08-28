@@ -1,101 +1,183 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tahu Walik Gurih & Krispi - Cemilan Khas Banyuwangi</title>
-  <meta name="description" content="Nikmati tahu walik gurih dengan kulit krispi dan isian melimpah. Pesan sekarang via WhatsApp!">
-  <meta name="keywords" content="Tahu Walik, Banyuwangi, Cemilan, Gorengan, Gurih, Krispi">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tahu Walik — Gurih & Krispi | Cemilan Khas Banyuwangi</title>
+  <meta name="description" content="Tahu Walik gurih & krispi dengan isian melimpah. Fresh digoreng! Pesan via WhatsApp.">
+  <meta name="keywords" content="tahu walik, banyuwangi, camilan, gorengan, pedas, keju">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tahu Walik — Gurih & Krispi" />
+  <meta property="og:description" content="Cemilan khas Banyuwangi. Fresh digoreng, gurih & krispi. Pesan via WhatsApp!" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1606756790138-bb9d5bfc2a7d?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:type" content="website" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Swiper (Testimoni) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 text-gray-900">
+<body class="text-gray-900 antialiased">
+
+  <!-- Animated Gradient Background -->
+  <div class="animated-bg" aria-hidden="true"></div>
 
   <!-- Navbar -->
-  <nav class="bg-gradient-to-r from-red-500 to-yellow-500 shadow-lg fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-      <h1 class="text-2xl font-extrabold text-white tracking-wide drop-shadow-lg">Tahu Walik</h1>
-      <ul class="hidden md:flex space-x-6 text-white font-semibold">
-        <li><a href="#home" class="hover:text-yellow-200 transition">Beranda</a></li>
-        <li><a href="#menu" class="hover:text-yellow-200 transition">Menu</a></li>
-        <li><a href="#testimoni" class="hover:text-yellow-200 transition">Testimoni</a></li>
-        <li><a href="#kontak" class="hover:text-yellow-200 transition">Kontak</a></li>
+  <nav class="fixed top-0 inset-x-0 z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-rose-500 grid place-items-center text-white">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <span class="font-extrabold text-white tracking-wide">Tahu Walik</span>
+      </div>
+      <ul class="hidden md:flex items-center gap-8 text-white/90 font-medium">
+        <li><a class="nav-link hover:text-white" href="#home">Beranda</a></li>
+        <li><a class="nav-link hover:text-white" href="#menu">Menu</a></li>
+        <li><a class="nav-link hover:text-white" href="#testimonial">Testimoni</a></li>
+        <li><a class="nav-link hover:text-white" href="#contact">Kontak</a></li>
       </ul>
-      <button id="menu-toggle" class="md:hidden text-white text-2xl">
-        <i class="fas fa-bars"></i>
+      <button id="menu-btn" class="md:hidden text-white text-2xl" aria-label="Buka menu">
+        <i class="fa-solid fa-bars"></i>
       </button>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden bg-gradient-to-r from-red-500 to-yellow-500 md:hidden">
-      <ul class="flex flex-col space-y-2 px-4 py-2 text-white font-semibold">
-        <li><a href="#home">Beranda</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#testimoni">Testimoni</a></li>
-        <li><a href="#kontak">Kontak</a></li>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/70 backdrop-blur-md text-white">
+      <ul class="px-6 py-4 space-y-3">
+        <li><a class="block py-1" href="#home">Beranda</a></li>
+        <li><a class="block py-1" href="#menu">Menu</a></li>
+        <li><a class="block py-1" href="#testimonial">Testimoni</a></li>
+        <li><a class="block py-1" href="#contact">Kontak</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section id="home" class="h-screen flex items-center justify-center text-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-black/40"></div>
-    <img src="https://images.unsplash.com/photo-1606756790138-bb9d5bfc2a7d?auto=format&fit=crop&w=1600&q=80" alt="Tahu Walik" class="absolute inset-0 w-full h-full object-cover">
-    <div class="relative z-10 max-w-2xl px-6">
-      <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-6 animate-fadeIn">Tahu Walik Gurih & Krispi</h2>
-      <p class="text-xl text-yellow-100 mb-8">Cemilan khas Banyuwangi yang bikin nagih!</p>
-      <a href="#menu" class="order-btn bg-gradient-to-r from-yellow-400 to-red-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-110 transition">Lihat Menu</a>
+  <header id="home" class="relative pt-24">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1606756790138-bb9d5bfc2a7d?auto=format&fit=crop&w=1800&q=80"
+        alt="Hero Tahu Walik"
+        class="w-full h-full object-cover parallax" data-parallax-speed="0.25"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
     </div>
-  </section>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-28 md:py-36 text-center text-white">
+      <h1 class="text-4xl md:text-6xl font-black leading-tight reveal-up">
+        Tahu Walik <span class="text-amber-300">Gurih</span> & <span class="text-rose-300">Krispi</span>
+      </h1>
+      <p class="mt-5 text-lg md:text-xl text-white/90 max-w-2xl mx-auto reveal-up delay-1">
+        Fresh digoreng saat dipesan. Kulit super kriuk, isian melimpah. Siap jadi camilan favoritmu!
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4 reveal-up delay-2">
+        <a href="#menu" class="btn-glow">
+          Lihat Menu
+        </a>
+        <a
+          href="https://wa.me/6282230425429?text=Halo,%20saya%20mau%20pesan%20Tahu%20Walik"
+          target="_blank"
+          class="btn-ghost"
+        >
+          <i class="fa-brands fa-whatsapp mr-2"></i> Pesan WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
 
   <!-- Menu -->
-  <section id="menu" class="py-20 bg-white relative z-20">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h3 class="text-4xl font-extrabold text-red-600 mb-12">Menu Kami</h3>
-      <div class="grid gap-10 md:grid-cols-3">
-        <div class="menu-card">
-          <img src="https://images.unsplash.com/photo-1626076070440-0e3e2ed2c7a6?auto=format&fit=crop&w=800&q=80" alt="Tahu Walik Original" class="rounded-lg w-full h-56 object-cover mb-4" loading="lazy">
-          <h4 class="text-2xl font-bold">Original</h4>
-          <p class="text-gray-600 mb-2">Cemilan gurih khas Banyuwangi</p>
-          <p class="text-red-600 font-extrabold text-xl">Rp 10.000</p>
-        </div>
-        <div class="menu-card">
-          <img src="https://images.unsplash.com/photo-1606756790138-bb9d5bfc2a7d?auto=format&fit=crop&w=800&q=80" alt="Tahu Walik Pedas" class="rounded-lg w-full h-56 object-cover mb-4" loading="lazy">
-          <h4 class="text-2xl font-bold">Pedas</h4>
-          <p class="text-gray-600 mb-2">Sensasi pedas yang bikin nagih</p>
-          <p class="text-red-600 font-extrabold text-xl">Rp 12.000</p>
-        </div>
-        <div class="menu-card">
-          <img src="https://images.unsplash.com/photo-1617196039897-4be8e06dcb1a?auto=format&fit=crop&w=800&q=80" alt="Tahu Walik Keju" class="rounded-lg w-full h-56 object-cover mb-4" loading="lazy">
-          <h4 class="text-2xl font-bold">Keju</h4>
-          <p class="text-gray-600 mb-2">Lelehan keju lumer di dalam</p>
-          <p class="text-red-600 font-extrabold text-xl">Rp 15.000</p>
-        </div>
+  <section id="menu" class="section-pad relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-title reveal-up">Menu Favorit</h2>
+        <p class="text-gray-200/90 max-w-2xl mx-auto reveal-up delay-1">Pilih varian paling kamu suka — siap dibungkus hangat!</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card -->
+        <article class="card-glass reveal-up">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1626076070440-0e3e2ed2c7a6?auto=format&fit=crop&w=900&q=80" alt="Tahu Walik Original" class="card-img">
+          </div>
+          <div class="mt-5">
+            <h3 class="card-title">Tahu Walik Original</h3>
+            <p class="card-desc">Rasa klasik, bumbu meresap, kriuk maksimal.</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="price">Rp 15.000</span>
+              <button class="btn-mini order-btn" data-name="Tahu Walik Original" data-price="Rp 15.000">
+                Pesan
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-glass reveal-up delay-1">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1606756790138-bb9d5bfc2a7d?auto=format&fit=crop&w=900&q=80" alt="Tahu Walik Pedas" class="card-img">
+          </div>
+          <div class="mt-5">
+            <h3 class="card-title">Tahu Walik Pedas</h3>
+            <p class="card-desc">Level pedas bisa pilih — dari senyum sampai mewek.</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="price">Rp 16.000</span>
+              <button class="btn-mini order-btn" data-name="Tahu Walik Pedas" data-price="Rp 16.000">
+                Pesan
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-glass reveal-up delay-2">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1617196039897-4be8e06dcb1a?auto=format&fit=crop&w=900&q=80" alt="Tahu Walik Keju" class="card-img">
+          </div>
+          <div class="mt-5">
+            <h3 class="card-title">Tahu Walik Keju</h3>
+            <p class="card-desc">Mozzarella lumer, gurih creamy, super nikmat.</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="price">Rp 18.000</span>
+              <button class="btn-mini order-btn" data-name="Tahu Walik Keju" data-price="Rp 18.000">
+                Pesan
+              </button>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Testimoni -->
-  <section id="testimoni" class="py-20 bg-gradient-to-r from-orange-400 to-red-500 text-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-4xl font-extrabold mb-12">Apa Kata Mereka?</h3>
-      <div class="swiper">
+  <!-- Testimonial -->
+  <section id="testimonial" class="section-pad relative">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="section-title reveal-up">Apa Kata Mereka?</h2>
+        <p class="text-gray-200/90 reveal-up delay-1">Testimoni asli pelanggan yang bikin kami semangat!</p>
+      </div>
+
+      <div class="swiper mySwiper reveal-up delay-2">
         <div class="swiper-wrapper">
-          <div class="swiper-slide testimoni-card">
-            <p>"Rasanya enak banget, kriuk di luar lembut di dalam!"</p>
-            <h5 class="mt-4 font-bold">- Budi</h5>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <p>“Kriuk di luar, lembut di dalam. Langganan tiap minggu!”</p>
+              <span class="author">— Budi Santoso</span>
+            </div>
           </div>
-          <div class="swiper-slide testimoni-card">
-            <p>"Cemilan favorit keluarga saya sekarang."</p>
-            <h5 class="mt-4 font-bold">- Siti</h5>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <p>“Yang pedas bikin nagih. Pengantaran cepat & masih hangat.”</p>
+              <span class="author">— Siti Rahayu</span>
+            </div>
           </div>
-          <div class="swiper-slide testimoni-card">
-            <p>"Wajib coba yang pedas, nagih banget!"</p>
-            <h5 class="mt-4 font-bold">- Andi</h5>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <p>“Texturenya perfect. Recommended banget untuk camilan keluarga.”</p>
+              <span class="author">— Ahmad Rizki</span>
+            </div>
           </div>
         </div>
         <div class="swiper-pagination mt-6"></div>
@@ -103,47 +185,68 @@
     </div>
   </section>
 
-  <!-- Kontak -->
-  <section id="kontak" class="py-20 bg-white text-center">
-    <h3 class="text-4xl font-extrabold text-red-600 mb-6">Hubungi Kami</h3>
-    <p class="text-gray-700 mb-6">Pesan sekarang via WhatsApp atau kunjungi lokasi kami.</p>
+  <!-- Contact -->
+  <section id="contact" class="section-pad relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <!-- Map -->
+        <div class="reveal-up">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <iframe
+              title="Lokasi Tahu Walik"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.402296710445!2d114.367!3d-8.165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd14fc70b3d7b2f%3A0x0!2sBanyuwangi!5e0!3m2!1sid!2sid!4v1700000000000"
+              width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
 
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 px-6">
-      <!-- Map / Gambar Lokasi -->
-      <div class="overflow-hidden rounded-lg shadow-lg">
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Banyuwangi&zoom=15&size=600x400&markers=color:red|Banyuwangi" alt="Lokasi Tahu Walik" class="w-full h-full object-cover">
-      </div>
+        <!-- Info -->
+        <div class="reveal-up delay-1">
+          <h2 class="section-title !text-left">Hubungi Kami</h2>
+          <p class="text-gray-200/90 mt-2">Pesan untuk arisan, acara kantor, atau camilan keluarga.</p>
 
-      <!-- Info Alamat -->
-      <div class="flex flex-col items-center justify-center text-left">
-        <h4 class="text-2xl font-bold mb-4 text-red-600">Alamat</h4>
-        <p class="text-gray-700 leading-relaxed mb-6">
-          Jl. Sudirman No. 45<br>
-          Banyuwangi, Jawa Timur<br>
-          Indonesia
-        </p>
-        <div class="flex space-x-8">
-          <a href="https://wa.me/6281234567890" target="_blank" class="text-green-500 text-4xl hover:scale-125 transition"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="text-pink-500 text-4xl hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="text-blue-500 text-4xl hover:scale-125 transition"><i class="fab fa-facebook"></i></a>
+          <div class="mt-6 space-y-4 text-white/90">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot mt-1 text-amber-300"></i>
+              <p>Jl. Sudirman No. 45, Banyuwangi, Jawa Timur 68400</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-brands fa-whatsapp mt-1 text-emerald-300"></i>
+              <p>+62 822-3042-5429</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-regular fa-clock mt-1 text-rose-300"></i>
+              <p>Setiap Hari: 08.00–20.00 WIB</p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center gap-4">
+            <a class="btn-glow" target="_blank"
+               href="https://wa.me/6282230425429?text=Halo,%20saya%20mau%20pesan%20Tahu%20Walik">
+              <i class="fa-brands fa-whatsapp mr-2"></i> Pesan via WhatsApp
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-6 text-center">
-    <p>&copy; 2025 Tahu Walik Banyuwangi. All rights reserved.</p>
+  <footer class="border-t border-white/10 py-8 text-center text-white/70">
+    © 2025 Tahu Walik. All rights reserved.
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a href="https://wa.me/6281234567890" target="_blank" class="floating-btn"><i class="fab fa-whatsapp"></i></a>
+  <a class="floating-wa" target="_blank"
+     href="https://wa.me/6282230425429?text=Halo,%20saya%20mau%20pesan%20Tahu%20Walik">
+     <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
-  <!-- SwiperJS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Custom Script -->
   <script src="script.js"></script>
 </body>
 </html>

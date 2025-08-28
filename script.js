@@ -1,18 +1,18 @@
 // Toggle mobile menu
 document.getElementById("menu-toggle").addEventListener("click", () => {
-  const menu = document.getElementById("mobile-menu");
-  menu.classList.toggle("hidden");
+  document.getElementById("mobile-menu").classList.toggle("hidden");
 });
 
-// SwiperJS for testimoni slider
+// Swiper slider untuk testimoni
 const swiper = new Swiper('.swiper', {
   loop: true,
+  effect: 'fade',
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
   },
   autoplay: {
-    delay: 3000,
+    delay: 4000,
     disableOnInteraction: false,
   },
 });

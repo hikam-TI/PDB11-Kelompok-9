@@ -1,0 +1,19 @@
+/* Animasi tombol pesan */
+.order-btn {
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+.order-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Swiper styling */
+.swiper {
+  width: 100%;
+  padding-bottom: 40px;
+}
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

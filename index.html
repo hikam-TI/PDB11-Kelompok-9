@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tahu Walik Gurih dan Krispi - Cemilan Khas Banyuwangi</title>
+  <meta name="description" content="Nikmati tahu walik gurih dengan kulit krispi dan isian melimpah. Pesan sekarang via WhatsApp!">
+  <meta name="keywords" content="Tahu Walik, Banyuwangi, Cemilan, Gorengan, Gurih, Krispi">
+  
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-yellow-500 shadow-md fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+      <h1 class="text-2xl font-bold text-white">Tahu Walik</h1>
+      <ul class="hidden md:flex space-x-6 text-white font-semibold">
+        <li><a href="#home" class="hover:text-gray-200">Beranda</a></li>
+        <li><a href="#menu" class="hover:text-gray-200">Menu</a></li>
+        <li><a href="#testimoni" class="hover:text-gray-200">Testimoni</a></li>
+        <li><a href="#kontak" class="hover:text-gray-200">Kontak</a></li>
+      </ul>
+      <button id="menu-toggle" class="md:hidden text-white text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-yellow-600 md:hidden">
+      <ul class="flex flex-col space-y-2 px-4 py-2 text-white font-semibold">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="relative bg-cover bg-center h-screen flex items-center justify-center text-center" style="background-image: url('https://images.unsplash.com/photo-1606756790138-bb9d5bfc2a7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+    <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Tahu Walik Gurih & Krispi</h2>
+      <p class="text-lg text-gray-200 mb-6">Cemilan khas Banyuwangi yang bikin nagih!</p>
+      <a href="#menu" class="order-btn bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">Lihat Menu</a>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-8">Menu Kami</h3>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:scale-105 transition">
+          <img src="https://images.unsplash.com/photo-1626076070440-0e3e2ed2c7a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tahu Walik Original" class="rounded-lg w-full h-56 object-cover mb-4" loading="lazy">
+          <h4 class="text-xl font-bold">Tahu Walik Original</h4>
+          <p class="text-gray-600 mb-2">Cemilan gurih khas Banyuwangi</p>
+          <p class="text-yellow-600 font-bold text-lg">Rp 10.000</p>
+        </div>
+        <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:scale-105 transition">
+          <img src="https://images.unsplash.com/photo-1606756790138-bb9d5bfc2a7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tahu Walik Pedas" class="rounded-lg w-full h-56 object-cover mb-4" loading="lazy">
+          <h4 class="text-xl font-bold">Tahu Walik Pedas</h4>
+          <p class="text-gray-600 mb-2">Sensasi pedas yang bikin nagih</p>
+          <p class="text-yellow-600 font-bold text-lg">Rp 12.000</p>
+        </div>
+        <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:scale-105 transition">
+          <img src="https://images.unsplash.com/photo-1617196039897-4be8e06dcb1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tahu Walik Keju" class="rounded-lg w-full h-56 object-cover mb-4" loading="lazy">
+          <h4 class="text-xl font-bold">Tahu Walik Keju</h4>
+          <p class="text-gray-600 mb-2">Lelehan keju lumer di dalam</p>
+          <p class="text-yellow-600 font-bold text-lg">Rp 15.000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni" class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-8">Apa Kata Mereka?</h3>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide bg-white rounded-xl shadow-md p-6">
+            <p class="text-gray-700 italic">"Rasanya enak banget, kriuk di luar lembut di dalam!"</p>
+            <h5 class="mt-4 font-bold">- Budi</h5>
+          </div>
+          <div class="swiper-slide bg-white rounded-xl shadow-md p-6">
+            <p class="text-gray-700 italic">"Cemilan favorit keluarga saya sekarang."</p>
+            <h5 class="mt-4 font-bold">- Siti</h5>
+          </div>
+          <div class="swiper-slide bg-white rounded-xl shadow-md p-6">
+            <p class="text-gray-700 italic">"Wajib coba yang pedas, nagih banget!"</p>
+            <h5 class="mt-4 font-bold">- Andi</h5>
+          </div>
+        </div>
+        <div class="swiper-pagination mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">Hubungi Kami</h3>
+      <p class="text-gray-600 mb-4">Pesan sekarang melalui WhatsApp atau kunjungi sosial media kami.</p>
+      <div class="flex justify-center space-x-6">
+        <a href="https://wa.me/6281234567890" target="_blank" class="text-green-500 text-3xl hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="text-pink-500 text-3xl hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-blue-500 text-3xl hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-yellow-500 text-white py-4 text-center">
+    <p>&copy; 2025 Tahu Walik Banyuwangi. All rights reserved.</p>
+  </footer>
+
+  <!-- SwiperJS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>

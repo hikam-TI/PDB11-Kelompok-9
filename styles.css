@@ -1,48 +1,140 @@
-/* Animasi hero */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeIn {
-  animation: fadeIn 1s ease-in-out forwards;
+/* ========= Base / Background ========= */
+:root{
+  --glow-1: rgba(255, 180, 0, .7);
+  --glow-2: rgba(255, 70, 70, .7);
+  --glass: rgba(255,255,255,.1);
 }
 
-/* Menu card efek hover */
-.menu-card {
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.menu-card:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 20px 30px rgba(255, 100, 0, 0.3);
-}
+html, body { scroll-behavior: smooth; }
 
-/* Testimoni card */
-.testimoni-card {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(6px);
-  padding: 2rem;
-  border-radius: 1rem;
-  font-size: 1.2rem;
-}
-
-/* Floating WhatsApp button */
-.floating-btn {
+/* Animated multi-layer gradient */
+.animated-bg{
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  inset: -30% -30% auto -30%;
+  height: 140vh;
+  z-index: -2;
+  background:
+    radial-gradient(60vmax 60vmax at 10% 20%, rgba(255,200,60,.45), transparent 60%),
+    radial-gradient(50vmax 50vmax at 90% 10%, rgba(255,80,80,.40), transparent 60%),
+    radial-gradient(60vmax 60vmax at 50% 90%, rgba(255,120,40,.35), transparent 60%);
+  filter: blur(60px) saturate(120%);
+  animation: floaty 18s ease-in-out infinite alternate;
+}
+@keyframes floaty{
+  0%{ transform: translateY(-3%) translateX(0); }
+  100%{ transform: translateY(3%) translateX(-2%); }
+}
+
+/* ========= Reusable UI ========= */
+.section-pad{ padding: 5rem 0; }
+.section-title{
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 30px rgba(0,0,0,.35);
+}
+
+/* Glow CTA */
+.btn-glow{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.9rem 1.4rem; border-radius:999px;
+  font-weight:800; color:#1a1a1a; background:#ffd257;
+  position: relative; isolation: isolate;
+  transition: transform .2s ease, filter .2s ease;
+  box-shadow:
+    0 0 0 4px rgba(255,210,87,.2),
+    0 12px 30px rgba(255,150,70,.35), 0 6px 14px rgba(0,0,0,.2);
+}
+.btn-glow::after{
+  content:""; position:absolute; inset:-2px; border-radius:999px; z-index:-1;
+  background: linear-gradient(135deg, var(--glow-1), var(--glow-2));
+  filter: blur(18px); opacity:.75;
+}
+.btn-glow:hover{ transform: translateY(-1px) scale(1.03); filter: brightness(1.05); }
+
+.btn-ghost{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.9rem 1.2rem; border-radius:999px; font-weight:700;
+  color:#fff; border:1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08);
+  backdrop-filter: blur(6px);
+  transition: background .2s ease, transform .2s ease;
+}
+.btn-ghost:hover{ background: rgba(255,255,255,.18); transform: translateY(-1px); }
+
+/* Social round buttons */
+.social-btn{
+  width:44px; height:44px; display:grid; place-items:center;
+  border-radius:999px; border:1px solid rgba(255,255,255,.3);
+  color:#fff; background: rgba(255,255,255,.06); backdrop-filter: blur(6px);
+  transition: transform .2s ease, background .2s ease;
+}
+.social-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,.18); }
+
+/* Floating WhatsApp */
+.floating-wa{
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  width:56px; height:56px; border-radius: 999px;
   background: linear-gradient(135deg, #25D366, #128C7E);
-  color: white;
-  font-size: 2rem;
-  padding: 15px;
-  border-radius: 50%;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: transform 0.3s ease;
+  color: #fff; display:grid; place-items:center; font-size:1.6rem;
+  box-shadow: 0 14px 30px rgba(18,140,126,.45), 0 6px 14px rgba(0,0,0,.25);
+  transition: transform .2s ease;
 }
-.floating-btn:hover {
-  transform: scale(1.2);
+.floating-wa:hover{ transform: translateY(-2px) scale(1.05); }
+
+/* ========= Cards / Glass / Images ========= */
+.card-glass{
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 1.5rem; padding: 1.25rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,.25);
+  backdrop-filter: blur(10px);
+  transform: translateZ(0);
+  transition: transform .35s ease, box-shadow .35s ease;
 }
+.card-glass:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(255,120,40,.35), 0 12px 28px rgba(0,0,0,.25);
+}
+.card-img{
+  width:100%; height: 240px; object-fit: cover;
+  transform: scale(1); transition: transform .5s ease;
+}
+.card-glass:hover .card-img{ transform: scale(1.08); }
+.card-title{ color:#fff; font-weight:900; font-size:1.25rem; }
+.card-desc{ color:#eaeaea; margin-top:.3rem; }
+.price{ color:#ffd257; font-weight:900; letter-spacing:.2px; }
+
+.btn-mini{
+  padding:.55rem 1rem; border-radius: 999px; font-weight:800;
+  color:#1a1a1a; background:#ffd257; transition: transform .15s ease;
+  box-shadow: 0 8px 18px rgba(255,150,70,.35), 0 4px 10px rgba(0,0,0,.18);
+}
+.btn-mini:hover{ transform: translateY(-1px); }
+
+/* ========= Testimonial ========= */
+.testi-card{
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+  color:#fff; border-radius: 1.25rem; padding: 2rem;
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  text-align: center;
+}
+.testi-card p{ font-size:1.05rem; line-height:1.6; }
+.testi-card .author{ display:block; margin-top:.9rem; color:#ffd257; font-weight:800; }
+
+/* ========= Scroll Reveal ========= */
+.reveal-up{ opacity:0; transform: translateY(24px); }
+.reveal-up.visible{ opacity:1; transform: translateY(0); transition: opacity .7s ease, transform .7s ease; }
+.delay-1{ transition-delay: .12s; }
+.delay-2{ transition-delay: .24s; }
+
+/* ========= Parallax (reduced motion aware) ========= */
+.parallax{ will-change: transform; }
+@media (prefers-reduced-motion: reduce){
+  .animated-bg{ animation: none; }
+  .parallax{ transform: none !important; }
+}
+
+/* ========= Nav active state ========= */
+.nav-link.active{ color:#ffd257; text-shadow: 0 0 22px rgba(255,210,87,.6); }

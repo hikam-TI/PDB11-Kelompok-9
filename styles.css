@@ -1,23 +1,27 @@
 /* ========= Base / Background ========= */
 :root{
-  --glow-1: rgba(255, 180, 0, .7);
-  --glow-2: rgba(255, 70, 70, .7);
-  --glass: rgba(255,255,255,.1);
+  --glow-1: rgba(0, 180, 255, .7);   /* biru neon */
+  --glow-2: rgba(160, 70, 255, .7);  /* ungu neon */
+  --glass: rgba(255,255,255,.08);    /* efek kaca lebih soft */
 }
 
-html, body { scroll-behavior: smooth; }
+html, body { 
+  scroll-behavior: smooth; 
+  background-color: #0e0f1a; /* base dark background */
+  font-family: 'Poppins', sans-serif;
+}
 
-/* Animated multi-layer gradient */
+/* Animated multi-layer gradient (biru-ungu-tosca) */
 .animated-bg{
   position: fixed;
   inset: -30% -30% auto -30%;
   height: 140vh;
   z-index: -2;
   background:
-    radial-gradient(60vmax 60vmax at 10% 20%, rgba(255,200,60,.45), transparent 60%),
-    radial-gradient(50vmax 50vmax at 90% 10%, rgba(255,80,80,.40), transparent 60%),
-    radial-gradient(60vmax 60vmax at 50% 90%, rgba(255,120,40,.35), transparent 60%);
-  filter: blur(60px) saturate(120%);
+    radial-gradient(60vmax 60vmax at 10% 20%, rgba(0,180,255,.35), transparent 60%),
+    radial-gradient(50vmax 50vmax at 90% 10%, rgba(150,70,255,.30), transparent 60%),
+    radial-gradient(60vmax 60vmax at 50% 90%, rgba(0,255,200,.25), transparent 60%);
+  filter: blur(60px) saturate(130%);
   animation: floaty 18s ease-in-out infinite alternate;
 }
 @keyframes floaty{
@@ -38,19 +42,19 @@ html, body { scroll-behavior: smooth; }
 .btn-glow{
   display:inline-flex; align-items:center; justify-content:center;
   padding:.9rem 1.4rem; border-radius:999px;
-  font-weight:800; color:#1a1a1a; background:#ffd257;
+  font-weight:800; color:#0e0f1a; background:#00e0ff;
   position: relative; isolation: isolate;
   transition: transform .2s ease, filter .2s ease;
   box-shadow:
-    0 0 0 4px rgba(255,210,87,.2),
-    0 12px 30px rgba(255,150,70,.35), 0 6px 14px rgba(0,0,0,.2);
+    0 0 0 4px rgba(0,224,255,.25),
+    0 12px 30px rgba(0,180,255,.35), 0 6px 14px rgba(0,0,0,.2);
 }
 .btn-glow::after{
   content:""; position:absolute; inset:-2px; border-radius:999px; z-index:-1;
   background: linear-gradient(135deg, var(--glow-1), var(--glow-2));
   filter: blur(18px); opacity:.75;
 }
-.btn-glow:hover{ transform: translateY(-1px) scale(1.03); filter: brightness(1.05); }
+.btn-glow:hover{ transform: translateY(-1px) scale(1.03); filter: brightness(1.1); }
 
 .btn-ghost{
   display:inline-flex; align-items:center; justify-content:center;
@@ -93,7 +97,7 @@ html, body { scroll-behavior: smooth; }
 }
 .card-glass:hover{
   transform: translateY(-6px);
-  box-shadow: 0 30px 70px rgba(255,120,40,.35), 0 12px 28px rgba(0,0,0,.25);
+  box-shadow: 0 30px 70px rgba(0,224,255,.35), 0 12px 28px rgba(0,0,0,.25);
 }
 .card-img{
   width:100%; height: 240px; object-fit: cover;
@@ -101,13 +105,13 @@ html, body { scroll-behavior: smooth; }
 }
 .card-glass:hover .card-img{ transform: scale(1.08); }
 .card-title{ color:#fff; font-weight:900; font-size:1.25rem; }
-.card-desc{ color:#eaeaea; margin-top:.3rem; }
-.price{ color:#ffd257; font-weight:900; letter-spacing:.2px; }
+.card-desc{ color:#dcdcdc; margin-top:.3rem; }
+.price{ color:#00e0ff; font-weight:900; letter-spacing:.2px; }
 
 .btn-mini{
   padding:.55rem 1rem; border-radius: 999px; font-weight:800;
-  color:#1a1a1a; background:#ffd257; transition: transform .15s ease;
-  box-shadow: 0 8px 18px rgba(255,150,70,.35), 0 4px 10px rgba(0,0,0,.18);
+  color:#0e0f1a; background:#00e0ff; transition: transform .15s ease;
+  box-shadow: 0 8px 18px rgba(0,180,255,.35), 0 4px 10px rgba(0,0,0,.18);
 }
 .btn-mini:hover{ transform: translateY(-1px); }
 
@@ -121,7 +125,7 @@ html, body { scroll-behavior: smooth; }
   text-align: center;
 }
 .testi-card p{ font-size:1.05rem; line-height:1.6; }
-.testi-card .author{ display:block; margin-top:.9rem; color:#ffd257; font-weight:800; }
+.testi-card .author{ display:block; margin-top:.9rem; color:#00e0ff; font-weight:800; }
 
 /* ========= Scroll Reveal ========= */
 .reveal-up{ opacity:0; transform: translateY(24px); }
@@ -137,4 +141,4 @@ html, body { scroll-behavior: smooth; }
 }
 
 /* ========= Nav active state ========= */
-.nav-link.active{ color:#ffd257; text-shadow: 0 0 22px rgba(255,210,87,.6); }
+.nav-link.active{ color:#00e0ff; text-shadow: 0 0 22px rgba(0,224,255,.6); }

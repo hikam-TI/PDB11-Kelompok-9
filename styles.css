@@ -1,19 +1,48 @@
-/* Animasi tombol pesan */
-.order-btn {
-  transition: transform 0.2s ease, background 0.3s ease;
+/* Animasi hero */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.order-btn:hover {
-  transform: scale(1.05);
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
-/* Swiper styling */
-.swiper {
-  width: 100%;
-  padding-bottom: 40px;
+/* Menu card efek hover */
+.menu-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.swiper-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.menu-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 30px rgba(255, 100, 0, 0.3);
+}
+
+/* Testimoni card */
+.testimoni-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  padding: 2rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Floating WhatsApp button */
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  font-size: 2rem;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+.floating-btn:hover {
+  transform: scale(1.2);
 }
